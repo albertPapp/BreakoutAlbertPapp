@@ -1,0 +1,53 @@
+This game was created by me, Albert Papp, for the LUT course Introduction to web programming, summer 2023.
+
+The game is a classic, old school Breakout style game. I got the idea from the Phaser examples on the Phaser website, and the available source code helped me in the early phases of developing the game.
+
+The game can be played with either mouse pointer movements and click, or with left and right arrow keys and space bar.
+
+The first version of the game, that I included as my submission for the week 7 weekly exercises, included just the basic game elements and logic, ball, paddle, bricks, score and life, as well as winning and losing logics.
+
+The assets for the game are mainly from https://opengameart.org/content/breakout-brick-breaker-tile-set-free, however I manually edited quite a few of them.
+Most of the editing of the assets had to do with resizing, but I also edited the paddle design.
+
+The sounds are mainly from freesound.org.
+
+As this was my first game development, and my first time using Phaser, I had quite a few challenges and bumps along the road.
+
+The first addition I made compared to the first verision was the adding of the "broken bricks", so each brick needs to be hit twice in order for it to disappear.
+
+Another major addition in this version, is the use of the "bonus bars" or power-ups.
+
+First I figured out how to create the bars, have them fall down, and use overlap to be able to "pick them up" and see their effect.
+The bonus bars are released at random, each with a specific probability(using a random integer).
+
+The first type of bonus bars are the 'easy ones', they just give you some extra points or some extra life.
+
+The next ones were a bit trickier, they speed up or slow down the game for 3 seconds. I used Stack Overflow a lot to figure out how to do this. The game speed modification, but also the return to the original state with a sort of timer, using the update function, was all inspired from Stack Overflow.
+
+The complicated part begins here, because I started adding different paddles. The paddles can "grow" or "shrink" or "shoot". As it is at the moment, all four paddles exist simultaneously, they are just disabled and enabled based on which powerup was picked up.
+Adding all the possible overlaps between all the possible paddles and power ups was quite tedious. I tried adding the overlaps as groups, but for some reason this just wouldn't work, no matter how hard I tried. I know it's not the prettiest or most practical, but I ended up adding the overlaps manually, basically one by one. This is the most repetitive part of the code and I could probably do it better, if I had more experience. But it does work. 
+
+The most headaches came from the shooting logic, I spent many hours trying to figure out the setInterval logic. How to make it stop on time, not setting two intervals if two shooting power-ups are taken etc. I finally made it work somehow, with a copious amount of if statements.
+
+Most power ups are positive, however the Fast and the Shrink powerup are negative and should be avoided.
+
+The current version uses different scenes, found in different .js files, all brought together in index.js. The first version was all included in one file.
+
+Level 2 is slightly more challenging, since the probability for the 'bad' modifiers, (shrink and fast) are higher.
+
+Creating the title scene was one of my favorite parts of the process.
+I created the logo in textcraft.net. The title scene also contains a moving ball and some bricks to give a feel for what's to come.
+
+One aspect that I unfortunatly wasn't able to figure out was the text input, so players can add their names.
+I have spent many hours scouring many articles, and unfortunatly I was just not able to make it work.
+
+Currently, in NameScene I am adding a dom Element to the scene, with HTML loaded from assets/form.html. 
+As per the dom Documentation, I added createContiner: true to my config which should make the dom element show up, but it just doesn't and I don't know why.
+
+I would appreciate it very much if you can help me with this aspect of the game and of course any other feedback that you may have!
+
+
+
+
+
+
